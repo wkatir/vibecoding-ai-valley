@@ -1,0 +1,92 @@
+
+> ai-valley@1.0.0 test
+> node --test tests/engine.test.mjs
+
+TAP version 13
+# Subtest: el mapa siempre queda conectado y dentro de los límites
+ok 1 - el mapa siempre queda conectado y dentro de los límites
+  ---
+  duration_ms: 1624.529673
+  type: 'test'
+  ...
+# Subtest: cada IA empieza con un solo pueblo y el resto son libres
+ok 2 - cada IA empieza con un solo pueblo y el resto son libres
+  ---
+  duration_ms: 327.34303
+  type: 'test'
+  ...
+# Subtest: la producción suma tropas por segundo y respeta la capacidad
+ok 3 - la producción suma tropas por segundo y respeta la capacidad
+  ---
+  duration_ms: 42.667439
+  type: 'test'
+  ...
+# Subtest: combate: gana el atacante solo si supera a los defensores
+ok 4 - combate: gana el atacante solo si supera a los defensores
+  ---
+  duration_ms: 34.384878
+  type: 'test'
+  ...
+# Subtest: combate: la defensa por nivel y el bono de Grok cuentan
+ok 5 - combate: la defensa por nivel y el bono de Grok cuentan
+  ---
+  duration_ms: 34.40218
+  type: 'test'
+  ...
+# Subtest: mejorar casa cuesta tropas, tarda y sube el nivel
+ok 6 - mejorar casa cuesta tropas, tarda y sube el nivel
+  ---
+  duration_ms: 37.298302
+  type: 'test'
+  ...
+# Subtest: Gemini paga 20% menos por mejorar
+ok 7 - Gemini paga 20% menos por mejorar
+  ---
+  duration_ms: 36.05295
+  type: 'test'
+  ...
+# Subtest: enviar tropas deja al menos una en casa y crea una escuadra
+ok 8 - enviar tropas deja al menos una en casa y crea una escuadra
+  ---
+  duration_ms: 35.734366
+  type: 'test'
+  ...
+# Subtest: la escuadra llega por el camino en el tiempo esperado
+ok 9 - la escuadra llega por el camino en el tiempo esperado
+  ---
+  duration_ms: 36.870109
+  type: 'test'
+  ...
+# Subtest: las rutas empiezan y terminan donde deben y usan caminos reales
+ok 10 - las rutas empiezan y terminan donde deben y usan caminos reales
+  ---
+  duration_ms: 102.342416
+  type: 'test'
+  ...
+# Subtest: se gana al eliminar a todas las IAs y se pierde sin pueblos
+ok 11 - se gana al eliminar a todas las IAs y se pierde sin pueblos
+  ---
+  duration_ms: 71.202181
+  type: 'test'
+  ...
+# Subtest: la misma semilla da la misma partida (reproducible)
+ok 12 - la misma semilla da la misma partida (reproducible)
+  ---
+  duration_ms: 241.383681
+  type: 'test'
+  ...
+# Subtest: una partida larga entre IAs no produce valores inválidos
+ok 13 - una partida larga entre IAs no produce valores inválidos
+  ---
+  duration_ms: 111.077288
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2902.26082

@@ -1,0 +1,10 @@
+seed 1: 10 villages, ended=over, t=264s, alive=[codex], claude:0v/0t codex:10v/300t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 2: 10 villages, ended=over, t=437s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/1147t gemini:0v/0t
+seed 3: 10 villages, ended=over, t=264s, alive=[codex], claude:0v/0t codex:10v/276t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 4: 10 villages, ended=playing, t=1500s, alive=[claude,codex], claude:5v/450t codex:5v/450t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 5: 10 villages, ended=over, t=292s, alive=[codex], claude:0v/0t codex:10v/235t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 6: 10 villages, ended=playing, t=1500s, alive=[claude,codex,meta,gemini], claude:3v/270t codex:1v/90t grok:0v/0t meta:3v/270t gemini:3v/270t
+seed 7: 10 villages, ended=playing, t=1500s, alive=[claude,grok,meta], claude:2v/180t codex:0v/0t grok:5v/450t meta:3v/270t gemini:0v/0t
+seed 8: 10 villages, ended=over, t=196s, alive=[codex], claude:0v/0t codex:10v/186t grok:0v/0t meta:0v/0t gemini:0v/0t
+wins by faction { claude: 0, codex: 4, grok: 0, meta: 1, gemini: 0 } finished 5 / 8
+lengths 264,437,264,1500,292,1500,1500,196 events {"send":1564,"fight":468,"capture":343,"reinforce":1061,"repel":125,"eliminated":26,"upgradeStart":141,"upgraded":136,"over":5}

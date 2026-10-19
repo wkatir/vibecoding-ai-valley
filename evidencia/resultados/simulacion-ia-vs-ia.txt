@@ -1,0 +1,32 @@
+seed 1: 10 villages, ended=over, t=252s, alive=[claude], claude:10v/257t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 2: 10 villages, ended=over, t=128s, alive=[grok], claude:0v/0t codex:0v/0t grok:10v/171t meta:0v/0t gemini:0v/0t
+seed 3: 10 villages, ended=over, t=310s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/268t
+seed 4: 10 villages, ended=over, t=242s, alive=[claude], claude:10v/286t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 5: 10 villages, ended=over, t=258s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/260t gemini:0v/0t
+seed 6: 10 villages, ended=over, t=248s, alive=[claude], claude:10v/263t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 7: 10 villages, ended=over, t=190s, alive=[grok], claude:0v/0t codex:0v/0t grok:10v/181t meta:0v/0t gemini:0v/0t
+seed 8: 10 villages, ended=over, t=180s, alive=[claude], claude:10v/193t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 9: 10 villages, ended=over, t=147s, alive=[codex], claude:0v/0t codex:10v/114t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 10: 10 villages, ended=over, t=173s, alive=[codex], claude:0v/0t codex:10v/155t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 11: 10 villages, ended=over, t=252s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/276t
+seed 12: 10 villages, ended=over, t=183s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/281t gemini:0v/0t
+seed 13: 10 villages, ended=over, t=197s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/197t gemini:0v/0t
+seed 14: 10 villages, ended=over, t=249s, alive=[grok], claude:0v/0t codex:0v/0t grok:10v/180t meta:0v/0t gemini:0v/0t
+seed 15: 10 villages, ended=over, t=226s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/337t gemini:0v/0t
+seed 16: 10 villages, ended=over, t=307s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/245t
+seed 17: 10 villages, ended=over, t=182s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/217t
+seed 18: 10 villages, ended=over, t=199s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/244t gemini:0v/0t
+seed 19: 10 villages, ended=over, t=272s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/282t
+seed 20: 10 villages, ended=over, t=213s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/231t
+seed 21: 10 villages, ended=over, t=149s, alive=[codex], claude:0v/0t codex:10v/152t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 22: 10 villages, ended=over, t=234s, alive=[claude], claude:10v/318t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 23: 10 villages, ended=over, t=205s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/288t
+seed 24: 10 villages, ended=over, t=273s, alive=[claude], claude:10v/268t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 25: 10 villages, ended=over, t=304s, alive=[meta], claude:0v/0t codex:0v/0t grok:0v/0t meta:10v/316t gemini:0v/0t
+seed 26: 10 villages, ended=over, t=352s, alive=[gemini], claude:0v/0t codex:0v/0t grok:0v/0t meta:0v/0t gemini:10v/453t
+seed 27: 10 villages, ended=over, t=236s, alive=[claude], claude:10v/164t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 28: 10 villages, ended=over, t=191s, alive=[claude], claude:10v/213t codex:0v/0t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 29: 10 villages, ended=over, t=175s, alive=[codex], claude:0v/0t codex:10v/128t grok:0v/0t meta:0v/0t gemini:0v/0t
+seed 30: 10 villages, ended=over, t=262s, alive=[codex], claude:0v/0t codex:10v/176t grok:0v/0t meta:0v/0t gemini:0v/0t
+wins by faction { claude: 8, codex: 5, grok: 3, meta: 6, gemini: 8 } finished 30 / 30
+lengths 252,128,310,242,258,248,190,180,147,173,252,183,197,249,226,307,182,199,272,213,149,234,205,273,304,352,236,191,175,262 events {"send":4203,"fight":1350,"capture":920,"repel":430,"eliminated":120,"reinforce":2637,"upgradeStart":393,"upgraded":369,"over":30}

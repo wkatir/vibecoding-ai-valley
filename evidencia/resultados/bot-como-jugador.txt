@@ -1,0 +1,3 @@
+easy    won 9/20, lost 11, timeouts 0, win times(s): 332,564,360,249,273,275,253,282,266
+normal  won 7/20, lost 13, timeouts 0, win times(s): 294,200,228,232,408,274,273
+hard    won 2/20, lost 16, timeouts 2, win times(s): 213,194
