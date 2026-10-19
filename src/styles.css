@@ -1,0 +1,644 @@
+:root {
+  --bark: #35190a;
+  --bark-2: #5a3014;
+  --wood: #a8693a;
+  --wood-hi: #d9a365;
+  --wood-lo: #7a4a22;
+  --paper: #f6e4b5;
+  --paper-2: #ead09a;
+  --ink: #4a2a12;
+  --ink-2: #7a5430;
+  --leaf: #5a9a3a;
+  --leaf-hi: #7bbd4f;
+  --leaf-lo: #3f7a2a;
+  --ground: #3f6f2c;
+  --font: 'Jersey 10', ui-monospace, 'Courier New', monospace;
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 20px;
+  font-synthesis: none;
+  font-variant-ligatures: none;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.view {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+/* Pixel-notched corners, like the panels in Stardew Valley. */
+.notch {
+  clip-path: polygon(
+    0 3px,
+    3px 3px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+}
+
+.panel {
+  background: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--bark);
+  box-shadow: inset 0 0 0 2px var(--wood), inset 0 0 0 4px var(--wood-hi), inset 0 0 0 5px var(--bark-2);
+  padding: 12px 14px;
+}
+
+.btn {
+  appearance: none;
+  padding: 8px 14px;
+  border: 3px solid var(--bark);
+  border-radius: 0;
+  background: var(--wood);
+  box-shadow: inset 0 3px 0 var(--wood-hi), inset 0 -3px 0 var(--wood-lo);
+  color: #fff4d6;
+  font: inherit;
+  line-height: 1;
+  text-shadow: 0 2px 0 var(--bark);
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  background: #b97a46;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(2px);
+}
+
+.btn[aria-pressed='true'] {
+  background: var(--leaf);
+  box-shadow: inset 0 3px 0 var(--leaf-hi), inset 0 -3px 0 var(--leaf-lo);
+}
+
+.btn:disabled {
+  background: #9a8a70;
+  box-shadow: inset 0 3px 0 #b8a98e, inset 0 -3px 0 #7d6f58;
+  color: #e8dcc0;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible,
+.factions button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.btn.small {
+  padding: 5px 9px;
+  font-size: 19px;
+}
+
+.btn.big {
+  padding: 10px 24px;
+  font-size: 28px;
+}
+
+/* HUD */
+
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hud > section,
+.hud > ul {
+  position: absolute;
+}
+
+.hud .btn {
+  pointer-events: auto;
+}
+
+.emblem {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--bark);
+  image-rendering: pixelated;
+}
+
+.lines {
+  display: grid;
+  gap: 2px;
+  font-size: 19px;
+  line-height: 1.15;
+}
+
+.lines strong {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.player {
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.standings {
+  top: 10px;
+  left: 50%;
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transform: translateX(-50%);
+}
+
+.chip.panel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px 5px 5px;
+  font-size: 24px;
+}
+
+.chip img {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--bark);
+  image-rendering: pixelated;
+}
+
+.chip.me {
+  background: #dcedb4;
+}
+
+.chip.out {
+  opacity: 0.45;
+  filter: grayscale(1);
+}
+
+.clock {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+}
+
+.time.panel {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 12px;
+  font-size: 21px;
+}
+
+.time strong {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.speeds.panel {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+}
+
+.send > div {
+  display: flex;
+  gap: 4px;
+}
+
+.command {
+  bottom: 10px;
+  left: 50%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px 18px;
+  width: min(620px, calc(100% - 20px));
+  transform: translateX(-50%);
+  pointer-events: auto;
+}
+
+.command .who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.send {
+  display: grid;
+  gap: 4px;
+  font-size: 18px;
+  color: var(--ink-2);
+}
+
+.build {
+  white-space: nowrap;
+}
+
+.hint {
+  bottom: 10px;
+  left: 50%;
+  width: min(520px, calc(100% - 20px));
+  transform: translateX(-50%);
+  font-size: 21px;
+  text-align: center;
+}
+
+.log {
+  bottom: 10px;
+  left: 10px;
+  display: grid;
+  gap: 4px;
+  width: min(310px, 32vw);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.log li {
+  padding: 5px 8px 5px 10px;
+  border-left: 4px solid var(--fc);
+  background: rgba(53, 25, 10, 0.84);
+  color: #f5e9cc;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.log li.mine {
+  color: #fff;
+}
+
+.tip.panel {
+  position: fixed;
+  z-index: 5;
+  display: grid;
+  gap: 2px;
+  padding: 8px 12px;
+  font-size: 19px;
+  pointer-events: none;
+}
+
+/* Screens */
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  overflow: auto;
+  background: rgba(30, 20, 8, 0.4);
+}
+
+/* Centers when there is room and still lets the page scroll when there is not. */
+.screen > :first-child {
+  margin-top: auto;
+}
+
+.screen > :last-child {
+  margin-bottom: auto;
+}
+
+.screen.title {
+  gap: 14px;
+  background: transparent;
+}
+
+.sign {
+  max-width: 100%;
+  padding: 16px 34px 18px;
+  border: 3px solid var(--bark);
+  background: var(--wood);
+  box-shadow: inset 0 0 0 3px var(--wood-hi), inset 0 0 0 5px var(--bark-2);
+  color: var(--paper);
+  text-align: center;
+}
+
+.sign h1 {
+  margin: 0;
+  color: #fff1c9;
+  font-size: clamp(52px, 9vw, 92px);
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 4px 0 var(--bark), 3px 0 0 var(--bark), -3px 0 0 var(--bark), 0 -3px 0 var(--bark), 3px 4px 0 var(--bark), -3px 4px 0 var(--bark);
+}
+
+.sign p {
+  margin: 12px 0 0;
+  font-size: 22px;
+}
+
+.menu {
+  width: min(580px, 100%);
+}
+
+.menu h2,
+.dialog h2 {
+  margin: 0 0 10px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.factions {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.factions button {
+  appearance: none;
+  display: grid;
+  grid-template-columns: 40px 104px 1fr;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 6px 8px;
+  border: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.factions button:hover {
+  background: var(--paper-2);
+}
+
+.factions button.on {
+  border-color: var(--leaf-lo);
+  background: #dcedb4;
+}
+
+.factions img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--bark);
+  image-rendering: pixelated;
+}
+
+.factions b {
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.factions small {
+  display: block;
+  color: var(--ink-2);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.factions .trait b {
+  font-size: 21px;
+}
+
+.diff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  padding-top: 10px;
+  border-top: 2px solid var(--wood-hi);
+}
+
+.diff > div {
+  display: flex;
+  gap: 4px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dialog {
+  width: min(520px, 100%);
+}
+
+.dialog.small {
+  width: min(320px, 100%);
+}
+
+.lead {
+  margin: 0 0 12px;
+  color: var(--ink-2);
+}
+
+.steps {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+  padding-left: 24px;
+  line-height: 1.2;
+}
+
+.keys {
+  margin: 0 0 16px;
+  color: var(--ink-2);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 14px;
+  margin: 0 0 8px;
+}
+
+.stats dt {
+  color: var(--ink-2);
+}
+
+.stats dd {
+  margin: 0;
+}
+
+.rank {
+  display: grid;
+  gap: 4px;
+  margin: 12px 0 16px;
+  padding: 10px 0 0;
+  border-top: 2px solid var(--wood-hi);
+  list-style: none;
+}
+
+.rank li {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.rank li.me {
+  color: var(--leaf-lo);
+}
+
+.rank img {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--bark);
+  image-rendering: pixelated;
+}
+
+@media (max-width: 760px) {
+  /* Narrow screens: top HUD becomes a small grid instead of floating panels. */
+  .hud {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-content: start;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .hud > .player,
+  .hud > .standings {
+    position: static;
+    transform: none;
+  }
+
+  .player {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 8px 10px;
+  }
+
+  .player .lines {
+    font-size: 17px;
+  }
+
+  .player .lines strong {
+    font-size: 22px;
+  }
+
+  .clock {
+    position: static;
+    display: contents;
+  }
+
+  .time.panel {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .standings {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+  }
+
+  .speeds.panel {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: end;
+  }
+
+  .command {
+    grid-template-columns: 1fr auto;
+    bottom: 8px;
+  }
+
+  .log {
+    bottom: 186px;
+    left: 8px;
+    width: calc(100% - 16px);
+  }
+
+  .hint {
+    bottom: 8px;
+  }
+
+  .factions button {
+    grid-template-columns: 40px 1fr;
+    gap: 2px 12px;
+    padding: 4px 6px;
+  }
+
+  .factions .name {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .factions .trait {
+    grid-column: 2;
+  }
+
+  .factions .trait small {
+    font-size: 16px;
+  }
+
+  .sign {
+    padding: 10px 18px 12px;
+  }
+
+  .sign p {
+    font-size: 19px;
+  }
+}
+
+b,
+strong {
+  font-weight: 400;
+}
