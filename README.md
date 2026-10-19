@@ -48,7 +48,7 @@ Controles:
 
 ### Opción A: sin instalar nada
 
-Abrir `docs/index.html` con Chrome, Edge o Firefox. Con internet carga la tipografía Jersey 10 de Google Fonts. Sin internet usa una tipografía de respaldo, que no probé a fondo.
+Abrir `docs/index.html` en el navegador (lo probé en Chromium). No necesita internet: el código y la tipografía van dentro del archivo.
 
 ### Opción B: desde el código
 
@@ -75,7 +75,7 @@ Si el repositorio está en GitHub: Settings, Pages, rama `main`, carpeta `/docs`
 ## 3. Lenguaje y herramientas
 
 - **Lenguaje:** JavaScript con React 19, Vite y Canvas 2D. Son unas 4060 líneas en `src/`.
-- **Sin imágenes externas:** las casas, los árboles y los personajes se dibujan píxel por píxel con código.
+- **Sin imágenes externas:** las casas, los árboles y los personajes se dibujan píxel por píxel con código. La tipografía Jersey 10 va incluida con el paquete `@fontsource/jersey-10`.
 - **Por qué no Python:** la actividad sugiere Python, pero el lenguaje es libre. En el primer prompt pedí React con Three.js, así que seguí en JavaScript.
 - **IA de apoyo:** Claude. Para probar, la IA usó Node, un navegador Chromium sin pantalla y capturas de pantalla.
 
@@ -122,7 +122,7 @@ La mejora que pedí a la IA fue el prompt 2: pasar de un juego de naves a un jue
 | Tecnología | React Three Fiber (3D) | React y Canvas 2D (pixel art) |
 | Personajes | Una nave y un jefe | 5 IAs con pueblos, casas y tropas |
 | Cómo se juega | Esquivar y disparar | Enviar tropas, conquistar y construir |
-| Duración de una partida | 1 a 2 minutos | 2 a 6 minutos (medido en simulaciones) |
+| Duración de una partida | Cerca de 1 minuto (un bot que esquiva gana en unos 45 s) | 2 a 6 minutos (medido en simulaciones) |
 | Extras | Sonido, 3 fases del jefe | Día y noche, lluvia, 3 dificultades, celular, sonido y música |
 
 Dentro de la iteración 2 hubo además once ajustes más pequeños: tipografía, árboles, interfaz de celular, balance de las IAs y rendimiento. La IA los hizo al revisar sus propias pruebas, no fueron prompts míos. Están explicados uno por uno en la sección 6.4.
@@ -169,6 +169,7 @@ La IA abrió el juego en Chromium sin pantalla (con `puppeteer-core`) y recorri�
 - Pantalla de título, ayuda, elegir IA y dificultad, y jugar.
 - Seleccionar un pueblo, enviar tropas, pausar.
 - Vista de celular (390 x 844) y escena de noche.
+- `docs/index.html` abierto como archivo local (`file://`) con la red bloqueada: la tipografía y el juego cargaron sin errores (`evidencia/11-abierto-sin-internet.png`).
 - Una partida completa avanzada rápido dentro de la página, con un jugador automático, hasta la pantalla de fin de partida. Pasaron combates, conquistas, mejoras y eliminaciones.
 
 Resultado final: 0 errores en la consola en todos los flujos. Las capturas están en `evidencia/`.
@@ -197,7 +198,6 @@ Estos errores los encontró la IA con las pruebas que ella misma ejecutó. No lo
 - El audio no se pudo escuchar durante las pruebas. Hay que revisarlo a mano.
 - Probé solo en Chromium. No lo probé en Firefox ni en Safari.
 - La dificultad se calibró con bots, no con personas.
-- Con la tipografía de respaldo (sin internet) el texto se ve más ancho y no revisé cómo queda.
 - El HUD no tiene todavía soporte completo para lectores de pantalla.
 
 ### 6.6 Prueba manual (completar al probar)
@@ -309,4 +309,4 @@ Debo reforzar:
 
 - **Declaración de uso de IA:** el código lo generó Claude a partir de mis prompts, como permite la actividad. Los commits llevan `Co-authored-by: Claude`.
 - **Marcas:** Claude, Codex, Grok, Muse y Gemini son marcas de sus empresas. Este proyecto es educativo y sin fines comerciales. Los emblemas del juego son dibujos propios de píxeles, no los logotipos oficiales.
-- **Tipografía:** Jersey 10, de Google Fonts, con licencia SIL Open Font License. Se carga desde internet y no está incluida en el repositorio.
+- **Tipografía:** Jersey 10, con licencia SIL Open Font License, incluida mediante el paquete `@fontsource/jersey-10`.
