@@ -1,0 +1,26 @@
+{
+  "name": "ai-valley",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "sim": "node scripts/sim.mjs",
+    "test": "node --test tests/engine.test.mjs",
+    "bot": "node scripts/bot.mjs"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  },
+  "description": "AI Valley: juego de estrategia pixel art hecho con vibecoding (React, Canvas 2D y Vite).",
+  "engines": {
+    "node": ">=18"
+  }
+}
